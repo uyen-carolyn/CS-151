@@ -1,0 +1,12 @@
+Your name: Uyen Nguyen
+Your student ID: 011129911
+Your major: Software Engineering
+Your preferred email address: uyen.nguyen@sjsu.edu
+Check one: [X] Undergraduate, [ ] Graduate, [ ] Open university 
+Repeating the class? [ ] Yes, [X] No
+Place and semester where you took a programming course in Java: San Jose State
+Course number and grade received: CS 46A, B+
+Place and semester where you took a course in data structures: San Jose State
+Course number and grade received: CS 46B, B
+Time it took you to answer the two questions below: 2 days (Technically a couple of hours if time in between trying to finish the question is excluded)   
+Did you ask anyone for help? [X] Yes, [ ] No
