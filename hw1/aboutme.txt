@@ -8,5 +8,5 @@ Place and semester where you took a programming course in Java: San Jose State
 Course number and grade received: CS 46A, B+
 Place and semester where you took a course in data structures: San Jose State
 Course number and grade received: CS 46B, B
-Time it took you to answer the two questions below: 2 days (A couple of hours)    
+Time it took you to answer the two questions below: 3 days (A couple of hours)    
 Did you ask anyone for help? [X] Yes, [ ] No
