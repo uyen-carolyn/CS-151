@@ -3,10 +3,8 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- * Testing program for Bank Account Class
- * Sort bank accounts by increasing balance
- * @author Uyen Nguyen
- *
+ * Testing program for BankAccount Class
+ * Sorts bank accounts by increasing balance
  */
 public class BankAccountTester
 {
