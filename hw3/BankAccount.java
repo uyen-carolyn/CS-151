@@ -1,8 +1,6 @@
 import java.util.*; 
 /**
  * BankAccount class used by Comparator (see CompareByBalance)
- * @author Uyen Nguyen
- *
  */
 public class BankAccount{
 	private String name; 
