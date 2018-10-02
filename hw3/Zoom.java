@@ -11,7 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * Program that zooms in on a 2D image of a car with a push of a button
+ * Program that shows a frame a simple drawing of a red car
+ * Zooms in and out of the drawing depending on which button is clicked
  */
 public class Zoom extends JPanel implements ActionListener {
 	private JButton in = new JButton("Zoom In");
@@ -21,8 +22,6 @@ public class Zoom extends JPanel implements ActionListener {
 	private int widthR;
 	private int heightW;
 	private int widthW;  
-	
-	
 
 	public Zoom() {
 		add(in);
@@ -44,12 +43,10 @@ public class Zoom extends JPanel implements ActionListener {
 	 * @param g the graphics that will be the car
 	 */
 	public void paint(Graphics g) {
-		
-		
 		super.paint(g);
 		
 		int xCenter = getWidth() / 2;
-	    int yCenter = getHeight() / 2;
+	        int yCenter = getHeight() / 2;
 		
 		// body of car
 		g.setColor(Color.red);
