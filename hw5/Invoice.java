@@ -16,7 +16,7 @@ public class Invoice {
 	/**
 	 * Adds an item to the invoice.
 	 * Edit: altered method to check if an item listed is already displayed 
-	 * to make the list of items look "neater" 
+	 * to make the list of items look "neater" and less cluttered. 
 	 * 
 	 * @param item	the item to add
 	 */
