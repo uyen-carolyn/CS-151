@@ -13,7 +13,8 @@ public class SimpleFormatter implements InvoiceFormatter {
 	 */
 	public String formatLineItem(LineItem item) {
 		total += item.getPrice() * item.getAmount();
-		return (String.format("%s: $%.2f 	X %d\n", item.toString(), item.getPrice(), item.getAmount()));
+		return (String.format("%s: $%.2f   X   %d   =   $%.2f \n", item.toString(), 
+				item.getPrice(), item.getAmount(), item.getPrice() * item.getAmount()));
 	}
 
 	public String formatFooter() {
