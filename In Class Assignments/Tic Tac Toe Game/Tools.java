@@ -12,9 +12,9 @@ public class Tools extends JPanel {
 	
 	Tools() {
 		setLayout(new GridLayout(1,2));
-    		Player1Wins = new JLabel("Player 1 Wins:  0");
+    		Player1Wins = new JLabel("Player 1 Wins:  0"); // creates new label to store score
 	
-    		Player2Wins = new JLabel("Player 2 Wins:  0");
+    		Player2Wins = new JLabel("Player 2 Wins:  0"); // creates new label to store score
 	
     		setLayout(new FlowLayout());
 
@@ -31,13 +31,13 @@ public class Tools extends JPanel {
         	
 		public void actionPerformed(ActionEvent ae) {
             		Brd.Reset();
-            		Player1Wins.setText("Player 1 Wins: "+ Brd.getPlayer1Score());
-            		Player2Wins.setText("Player 2 Wins: "+ Brd.getPlayer2Score());
+            		Player1Wins.setText("Player 1 Wins: "+ Brd.getPlayer1Score()); // sets text for when player wins
+            		Player2Wins.setText("Player 2 Wins: "+ Brd.getPlayer2Score()); // sets text for when player wins
         	}
     	});
 
-    	add(Player1Wins);
-    	add(Player2Wins);
+    	add(Player1Wins); // adds component into game
+    	add(Player2Wins); // adds component into game
     
     	add(Exit);
     	add(Reset);
