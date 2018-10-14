@@ -119,11 +119,19 @@ public void actionPerformed(ActionEvent E) {
 
 }
 
+/**
+ * New method: returns Player 1's score
+ * @return player1Wins
+ */
 public int getPlayer1Score()
 {
 	return player1Wins;
 }
 
+/**
+ * New method: returns Player 2's score
+ * @return player2Wins
+ */
 public int getPlayer2Score()
 {
 	return player2Wins;
