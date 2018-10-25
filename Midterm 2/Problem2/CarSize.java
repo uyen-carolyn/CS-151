@@ -25,9 +25,8 @@ public class CarSize extends JPanel implements ChangeListener {
 		
 		x = 150;
 		y = 150; 
-		width = 50; // size of car initialized at 50 for width
-		            // car placement and dimensions depend on width value
-                
+		width = 50; 
+		
 		add(slider); 
 		slider.addChangeListener(this); 
 		setVisible(true); 
@@ -36,7 +35,7 @@ public class CarSize extends JPanel implements ChangeListener {
 	public void paint(Graphics g) {
 		super.paint(g);
 		
-		// bottom of car
+		// bottom
 		g.setColor(Color.red);
 		g.fillRect(x, y + width / 6, 
 		           width - 1, width / 6);
@@ -48,7 +47,7 @@ public class CarSize extends JPanel implements ChangeListener {
 		g.fillOval(x + width * 2 / 3, 
 		           y + width / 3,
 		           width / 6, width / 6);
-		//top of car
+		//top
 		g.setColor(Color.red);
 		g.fillRect(x + (width / 4), y + width / 24, 
         width / 2, width / 4);
@@ -56,9 +55,9 @@ public class CarSize extends JPanel implements ChangeListener {
 	
 	public void stateChanged(ChangeEvent e) {
 		JSlider source = (JSlider)e.getSource(); 
-         int val = source.getValue();  // get slider value
-         width = val; // resizing to value on slider
-         repaint();
+         	int val = source.getValue();  // get slider value
+         	width = val; // resizing
+         	repaint();
 	}
 	
 	public static void main(String[] args) {
@@ -79,4 +78,5 @@ public class CarSize extends JPanel implements ChangeListener {
 
 		frame.show();
 	}
-}
+	
+  }
