@@ -20,6 +20,7 @@ public class Game extends JPanel implements KeyListener {
     private int score;
     private int totalGames;
     private int remainingLives;
+    private int currentMaxSpeed;
 
     private boolean gameOver;
     private boolean frozen;
@@ -51,19 +52,11 @@ public class Game extends JPanel implements KeyListener {
         }
     });
     
-    private Timer backgroundScroll = new Timer(100, e -> {
-        if(!up && !down && !left && !right){
-            drone.setX(drone.getX()+2);
-        }
-
-    	if(imgPosition > -850 || img2Position > 0)
+    private Timer backgroundScroll = new Timer(10, e -> {
+        if(imgPosition > -850 || img2Position > 0)
     	{
-    		if(!frozen)
-    		{
-                imgPosition-= planeSpeed/5;
-                img2Position-= planeSpeed/5;
-    		}
-            
+                imgPosition-= 1;
+                img2Position-= 1;
     	}
     	else
     	{
@@ -81,9 +74,8 @@ public class Game extends JPanel implements KeyListener {
     });
     
     private Timer timerSpawn = new Timer(1000, e -> {
-		
-        int y = random.nextInt(360);
-        planeSpeed = ThreadLocalRandom.current().nextInt(5, 16);
+        int y = ThreadLocalRandom.current().nextInt(-40,360);
+        planeSpeed = ThreadLocalRandom.current().nextInt(currentMaxSpeed-10, currentMaxSpeed+1);
 
         airplanes.add(new Airplane(y,planeSpeed));
     });
@@ -92,7 +84,13 @@ public class Game extends JPanel implements KeyListener {
         haveBullet = true;
     });
 
-    private Timer timer = new Timer(100, e -> {
+    private long lastMovement = System.currentTimeMillis();
+
+    private Timer timer = new Timer(10, e -> {
+        if(!up && !down && !left && !right){
+            if(drone.getX()<804)
+                drone.setX(drone.getDX()+.2);
+        }
         detectCollisions();
         // If we want to clean the playing field during the game, do it here
         // be careful for null pointer exceptions though.
@@ -102,11 +100,17 @@ public class Game extends JPanel implements KeyListener {
             bullets.add(new Bullet(drone));
         }
 
-        for(int i = 0; i < bullets.size(); i++){
+        for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).right();
+            detectCollisions();
         }
-        for (int i = 0; i < airplanes.size(); i++) {
-            airplanes.get(i).left();
+
+        if(lastMovement+100 <= System.currentTimeMillis()) {
+            lastMovement=System.currentTimeMillis();
+            for (int i = 0; i < airplanes.size(); i++) {
+                airplanes.get(i).left();
+                detectCollisions();
+            }
         }
         detectCollisions();
     });
@@ -114,6 +118,7 @@ public class Game extends JPanel implements KeyListener {
     public Game() {
         random.setSeed(System.currentTimeMillis());
         gameTime = 90;
+        currentMaxSpeed = 15;
         setFocusable(true);
         addKeyListener(this);
 
@@ -131,7 +136,7 @@ public class Game extends JPanel implements KeyListener {
 //        this.img2 = Toolkit.getDefaultToolkit().createImage(getClass().getResource("background.png"));
 	    
         this.img = Toolkit.getDefaultToolkit().createImage("background.png");
-        this.img2 = Toolkit.getDefaultToolkit().createImage("background.png");
+        this.img2 = Toolkit.getDefaultToolkit().createImage("backgroundFlipped.png");
 
         score = 0;
         totalGames = 0;
@@ -161,8 +166,10 @@ public class Game extends JPanel implements KeyListener {
         bullets.clear();
 
         totalGames++;
-        if(remainingLives > 1)
+        if(remainingLives > 1) {
+            currentMaxSpeed += 5;
             score++;
+        }
     }
     
 
