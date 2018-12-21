@@ -1,0 +1,13 @@
+-------------Part 1 Questions-------------
+5.1) No, because Scanner does not assign any additional responsibilities to what it has read. Scanner only reads them.
+
+6.1) The methods byteValue() and shortValue() serve to return a casted version of whatever the method intValue() returns. Because of this, the methods are already defined, since intValue() would already be defined. 
+
+7.1) Class uses this object to check if a method returns void. Although there is no void type, void represents a placeholder for any actual type that the method is using. 
+
+9.2) A thread that sleeps by calling ‘sleep’ won’t do anything for a given time, while a thread that awaits by calling ‘await’ is waiting for something else to finish before it continues- when it starts and how long it should wait before it starts is dependent on the something else that needs to be done before it. 
+
+9.3) The thread will simply wait forever. 
+
+Comments:
+Thanks for being my professor for CS 151. Happy Holidays and an early Happy New Year!  
